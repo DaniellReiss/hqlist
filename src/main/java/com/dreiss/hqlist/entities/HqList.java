@@ -8,6 +8,10 @@ import java.util.Objects;
 @Table(name = "tb_hq_list")
 public class HqList {
 
+    public HqList(){
+
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

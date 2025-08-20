@@ -17,8 +17,13 @@ public class DC {
     private Integer year;
     private String genre;
     private String authors;
+    private Double score;
     private String imgUrl;
+    
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
+
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
     public DC() {
@@ -33,6 +38,7 @@ public class DC {
         this.year = year;
         this.genre = genre;
         this.authors = authors;
+        this.score = score;
         this.imgUrl = imgUrl;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
@@ -77,6 +83,14 @@ public class DC {
 
     public void setAuthors(String authors) {
         this.authors = authors;
+    }
+
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
     }
 
     public String getImgUrl() {

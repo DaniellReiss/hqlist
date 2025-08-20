@@ -19,7 +19,7 @@ public class DC {
     private String authors;
     private Double score;
     private String imgUrl;
-    
+
     @Column(columnDefinition = "TEXT")
     private String shortDescription;
 

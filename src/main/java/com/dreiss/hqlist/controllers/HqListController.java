@@ -20,9 +20,18 @@ public class HqListController {
     @Autowired
     private HqListService hqListService;
 
+    @Autowired
+    private HqService hqService;
+
     @GetMapping
     public List<HqListDTO> findAll(){
         List<HqListDTO> result = hqListService.findAll();
+        return result;
+    }
+
+    @GetMapping(value = "/{listId}/dc")
+    public List<HqMinDTO> findByList(@PathVariable Long listId){
+        List<HqMinDTO> result = hqService.findByList(listId);
         return result;
     }
 

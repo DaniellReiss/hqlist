@@ -1,6 +1,7 @@
 package com.dreiss.hqlist.dto;
 
 import com.dreiss.hqlist.entities.DC;
+import com.dreiss.hqlist.projections.HqMinProjection;
 
 public class HqMinDTO {
 
@@ -20,6 +21,14 @@ public class HqMinDTO {
         genre = entity.getGenre();
         score = entity.getScore();
         imgUrl = entity.getImgUrl();
+    }
+
+    public HqMinDTO(HqMinProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        genre = projection.getGenre();
+        score = projection.getScore();
+        imgUrl = projection.getImgUrl();
     }
 
     public String getTitle() {

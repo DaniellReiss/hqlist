@@ -3,13 +3,11 @@ package com.dreiss.hqlist.controllers;
 import com.dreiss.hqlist.dto.HqDTO;
 import com.dreiss.hqlist.dto.HqListDTO;
 import com.dreiss.hqlist.dto.HqMinDTO;
+import com.dreiss.hqlist.dto.ReplacementDTO;
 import com.dreiss.hqlist.services.HqListService;
 import com.dreiss.hqlist.services.HqService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,6 +31,11 @@ public class HqListController {
     public List<HqMinDTO> findByList(@PathVariable Long listId){
         List<HqMinDTO> result = hqService.findByList(listId);
         return result;
+    }
+
+    @PostMapping(value = "/{listId}/replacement")
+    public void move(@PathVariable Long listId, @RequestBody ReplacementDTO body){
+        hqListService.move(listId, body.getSourceIndex(), body.getDestinationIndex());
     }
 
 }
